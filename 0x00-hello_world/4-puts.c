@@ -4,6 +4,7 @@
  *
  * Description: this program print the string
  *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {

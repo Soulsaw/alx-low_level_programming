@@ -4,6 +4,7 @@
  *
  * Description: This program can permit to print the size of variable type in C
  *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
