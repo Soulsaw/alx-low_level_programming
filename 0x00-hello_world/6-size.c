@@ -1,4 +1,10 @@
 #include<stdio.h>
+/*
+ *This is the entry point of the main program
+ *
+ *
+ *This program prints the differents size of the variable type in C progrsm
+ */
 int main(void)
 {
 		printf("Size of char:%d byte(s)\n",sizeof(char));
