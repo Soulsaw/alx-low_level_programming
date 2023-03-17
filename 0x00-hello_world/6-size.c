@@ -1,16 +1,16 @@
 #include<stdio.h>
-/*
- *This is the entry point of the main program
+/**
+ * main - Entry point
  *
+ * Description: This program can permit to print the size of variable type in C
  *
- *This program prints the differents size of the variable type in C progrsm
  */
 int main(void)
 {
-		printf("Size of a char: %d byte(s)\n",sizeof(char));
-		printf("Size of an int: %d byte(s)\n",sizeof(int));
-		printf("Size of a long int: %d byte(s)\n",sizeof(long int));
-		printf("Size of a long long int: %d byte(s)\n",sizeof(long long int));
-		printf("Size of a float: %d byte(s)\n",sizeof(long long));
+		printf("Size of a char: %d byte(s)\n", sizeof(char));
+		printf("Size of an int: %d byte(s)\n", sizeof(int));
+		printf("Size of a long int: %d byte(s)\n", sizeof(long int));
+		printf("Size of a long long int: %d byte(s)\n", sizeof(long long int));
+		printf("Size of a float: %d byte(s)\n", sizeof(float));
 		return (0);
 }

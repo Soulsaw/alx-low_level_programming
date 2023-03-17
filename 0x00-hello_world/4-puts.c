@@ -1,8 +1,9 @@
 #include<stdio.h>
-/*
- *This is the entry point of program
+/**
+ * main - Entry point
  *
- * This programm prints the string in outputs
+ * Description: this program print the string
+ *
  */
 int main(void)
 {

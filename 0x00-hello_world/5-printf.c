@@ -1,15 +1,11 @@
 #include<stdio.h>
-/*
- *This is the entry point of the program
+/**
+ *  main - Entry point
  *
- *
- *
- *This program print a strimg to the outputs
- *
+ *  Description: This program display the string values
  */
-
 int main(void)
 {
-	printf("with proper grammar, but the outcome is a piece of art,\n");
+	printf("with proper grammar, but the outcome is a piece of art, \n");
 	return (0);
 }
