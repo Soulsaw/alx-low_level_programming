@@ -3,7 +3,7 @@
 /**
  * main - Entry point
  *
- * eturn: Always 0 (Success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
@@ -17,6 +17,8 @@ int main(void)
 	{
 		putchar(a);
 	}
+
+	putchar('\n');
 
 	return (0);
 
