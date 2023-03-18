@@ -9,16 +9,13 @@ int main(void)
 	int a;
 	int b;
 
-	int i;
-	int j;
-
-	for (i = 0; i <= a; i++)
+	for (a = 0; a <= 01; a++)
 	{
-		for (j = 0; j <= b; j++)
+		for (b = 0; b <= 10; b++)
 		{
-		putchar('0' + i);
-		putchar('0' + j);
-		if (i < a && j < b)
+		putchar('0' + a);
+		putchar('0' + b);
+		if (a < 01 && b < 10)
 		{
 		putchar(',');
 		putchar(' ');
