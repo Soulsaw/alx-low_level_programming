@@ -15,8 +15,7 @@ int main(void)
 		{
 			if (a < 10)
 			{
-			putchar('0' + a);
-			putchar('0' + a);
+			putchar('0' + a + '0' + a);
 			}
 			else
 			{
@@ -25,8 +24,7 @@ int main(void)
 		putchar(' ');
 			if (b < 10)
 			{
-				putchar('0' + a);
-				putchar('0' + b);
+				putchar('0' + a + '0' + b);
 			}
 			else
 			{
@@ -38,8 +36,7 @@ int main(void)
 				}
 			else
 				{
-				putchar(',');
-				putchar(' ');
+				putchar(',' + ' ');
 				}
 		}
 
