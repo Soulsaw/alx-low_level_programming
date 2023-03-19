@@ -9,14 +9,13 @@ int main(void)
 	int a;
 	int b;
 
-	for (a = 0; a <= 1; a++)
+	for (int i = 0; i < a; i++)
 	{
-		b = a + 1;
-		for (b = b; b < 10; b++)
+		for (int j = i + 1; j < b; j++)
 		{
-		putchar('0' + a);
-		putchar('0' + b);
-		if (a < 1 && b < 10)
+		putchar('0' + i);
+		putchar('0' + j);
+		if (i != a - 1 && j != b - 1)
 		{
 		putchar(',');
 		putchar(' ');
