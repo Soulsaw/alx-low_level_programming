@@ -2,7 +2,10 @@
 /**
  * add - this function add to integer number
  *
- * return: The sum of twice numbers
+ * @a: The integer to add
+ * @b: The other integer to add
+ *
+ * Return: a + b The sum of twice numbers
  */
 int add(int a, int b)
 {
