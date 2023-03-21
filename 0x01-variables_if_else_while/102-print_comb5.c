@@ -13,31 +13,18 @@ int main(void)
 	{
 		for (b = a + 1; b < 100; b++)
 		{
-			if (a < 10)
-			{
-			putchar('0' + a + '0' + a);
-			}
-			else
-			{
-				putchar('0' + a);
-			}
+		putchar('0' + a);
 		putchar(' ');
-			if (b < 10)
-			{
-				putchar('0' + a + '0' + b);
-			}
-			else
-			{
-				putchar('0' + b);
-			}
-			if (a == 98 && b == 99)
-				{
+		putchar('0' + b);
+		if (a == 98 && b == 99)
+		{
 
-				}
-			else
-				{
-				putchar(',' + ' ');
-				}
+		}
+		else
+		{
+		putchar(',');
+		putchar(' ');
+		}
 		}
 
 	}
