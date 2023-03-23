@@ -2,6 +2,7 @@
 
 /**
 * main - causes an infinite loop
+* exit this function execute the infinite loop
 * Return: 0
 */
 
