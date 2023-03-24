@@ -23,9 +23,6 @@ void more_numbers(void)
 				putchar('0' + i);
 			}
 		}
-		if (j != 10)
-		{
 			putchar('\n');
-		}
 	}
 }
