@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- * more_numbers - prints the numbers, from 0 to 9 do not print 2 and 4
+ * main - prints the numbers, from 0 to 9 do not print 2 and 4
  *
+ * Return: 0 success
  */
-void more_numbers(void)
+int main(void)
 {
 	int i;
 
@@ -50,7 +51,10 @@ void more_numbers(void)
 
 			if (i != 101)
 			{
-				puchar(' ');
+				putchar(' ');
 			}
 		}
+
+		return (0);
 }
+
