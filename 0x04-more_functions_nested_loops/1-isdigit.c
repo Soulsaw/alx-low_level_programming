@@ -9,7 +9,7 @@
  */
 int _isdigit(int c)
 {
-	if (!(c >= 48 && c <= 56))
+	if (!((c >='a' || c >= 'A') && (c <= 'z' || c <= 'Z')))
 	{
 		return (1);
 	}
