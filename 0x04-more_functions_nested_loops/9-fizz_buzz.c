@@ -38,7 +38,7 @@ int main(void)
 				}
 			}
 
-			if (i != 101)
+			if (i < 100)
 			{
 				putchar(' ');
 			}
