@@ -25,7 +25,7 @@ int main(void)
 				putchar('z');
 				putchar('z');
 			}
-			else
+			if (!((i % 3 == 0) || (i % 5 == 0)))
 			{
 				if (i >= 10)
 				{
