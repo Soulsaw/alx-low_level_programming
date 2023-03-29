@@ -18,19 +18,8 @@ int main(void)
 				putchar('z');
 				putchar('z');
 			}
-			else if (i % 5 == 0)
+			if (i % 5 == 0)
 			{
-				putchar('B');
-				putchar('u');
-				putchar('z');
-				putchar('z');
-			}
-			else if (i % 15 == 0)
-			{
-				putchar('F');
-				putchar('i');
-				putchar('z');
-				putchar('z');
 				putchar('B');
 				putchar('u');
 				putchar('z');
@@ -57,4 +46,3 @@ int main(void)
 
 		return (0);
 }
-
