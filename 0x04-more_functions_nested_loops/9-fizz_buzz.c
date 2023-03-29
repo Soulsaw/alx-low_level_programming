@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
  * main - prints the numbers, from 0 to 9 do not print 2 and 4
