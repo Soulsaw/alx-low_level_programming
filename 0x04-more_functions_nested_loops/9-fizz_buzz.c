@@ -8,6 +8,7 @@
 int main(void)
 {
 	int i;
+	int n;
 
 		for (i = 1; i <= 100; i++)
 		{
@@ -27,15 +28,12 @@ int main(void)
 			}
 			if (!((i % 3 == 0) || (i % 5 == 0)))
 			{
-				if (i >= 10)
+				n = i % 10;
+				if (i / 10 != 0)
 				{
 					putchar('0' + (i / 10));
-					putchar('0' + (i % 10));
 				}
-				else
-				{
-					putchar('0' + i);
-				}
+				putchar('0' + n);
 			}
 
 			if (i < 100)
