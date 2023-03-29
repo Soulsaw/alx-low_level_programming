@@ -9,12 +9,12 @@
  */
 int _isdigit(int c)
 {
-	if (!((c >= 'a' || c >= 'A') && (c <= 'z' || c <= 'Z')))
+	if ((c >= 'a' || c >= 'A') && (c <= 'z' || c <= 'Z'))
 	{
-		return (1);
+		return (0);
 	}
 	else
 	{
-		return (0);
+		return (1);
 	}
 }
