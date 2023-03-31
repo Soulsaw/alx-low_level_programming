@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * leet - This is the name of function
+ * leet - This is the name of function the top of the top
  * @val: The pointer on the string
  * Return: A string
  */
