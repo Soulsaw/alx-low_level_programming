@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
  * main - prints the numbers, from 0 to 9 do not print 2 and 4
@@ -8,6 +8,7 @@
 int main(void)
 {
 	int i;
+	int n;
 
 		for (i = 1; i <= 100; i++)
 		{
@@ -25,24 +26,22 @@ int main(void)
 				putchar('z');
 				putchar('z');
 			}
-			else
+			if (!((i % 3 == 0) || (i % 5 == 0)))
 			{
-				if (i >= 10)
+				n = i % 10;
+				if (i / 10 != 0)
 				{
 					putchar('0' + (i / 10));
-					putchar('0' + (i % 10));
 				}
-				else
-				{
-					putchar('0' + i);
-				}
+				putchar('0' + n);
 			}
 
-			if (i < 101)
+			if (i < 100)
 			{
 				putchar(' ');
 			}
 		}
+		putchar('\n');
 
 		return (0);
 }
