@@ -2,7 +2,7 @@
 
 /**
  * string_toupper - This function change every lowercase to uppercase
- *@val:
+ *@val: This is the only parameter
  * Return: the uppercae
  */
 char *string_toupper(char *val)
