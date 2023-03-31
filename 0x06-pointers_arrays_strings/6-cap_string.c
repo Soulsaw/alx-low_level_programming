@@ -10,6 +10,10 @@ char *cap_string(char *val)
 	int i;
 
 	i = 0;
+	if (val[i] >= 'a' && val[i] <= 'z')
+	{
+		val[i] -= 32;
+	}
 	while (val[i] != '\0')
 	{
 		if ((val[i] == ' ' || val[i] == '\t' || val[i] == '\n' || val[i] == ',' ||
