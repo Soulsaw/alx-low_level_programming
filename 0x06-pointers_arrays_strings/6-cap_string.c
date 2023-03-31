@@ -18,7 +18,7 @@ char *cap_string(char *val)
 					val[i] == ')' || val[i] == '{' || val[i] == '}') &&
 				(val[i + 1] >= 'a' && val[i + 1] <= 'z'))
 		{
-			val[i + 1] = val[i + 1] - 32;
+			val[i + 1] -= 32;
 		}
 		i++;
 	}
