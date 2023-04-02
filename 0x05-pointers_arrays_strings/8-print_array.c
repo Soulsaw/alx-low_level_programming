@@ -11,8 +11,10 @@ void print_array(int *a, int n)
 
 	for (i = 0; i < n; i++)
 	{
-		if (a[i] >= 1000)
+		printf("%d", a[i]);
+		if (i < n - 1)
 		{
-			putchar('0' + (a[i] / 1000));
-			putchar('0' + ((a[i] % 1000) / 100));
-			putchar('0' + (((a[i] % 1000) % 100) / 10);
+			printf(", ");
+		}
+	}
+}
