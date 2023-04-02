@@ -9,9 +9,8 @@
 void rev_string(char *s)
 {
 	int i;
-	int j;
+	int temp;
 	int cpt;
-	char *rev;
 
 	i = 0;
 	cpt = 0;
@@ -21,11 +20,10 @@ void rev_string(char *s)
 		i++;
 	}
 
-	j = 0;
-	for (i = cpt - 1; i >= 0; i--)
+	for (i = 0; i < cpt / 2; i++)
 	{
-		rev[j] = s[i];
-		j++;	
+		temp = s[i];
+		s[i] = s[cpt - (i + 1)];
+		s[cpt - (i + 1)] = temp;
 	}
-	s = rev;
 }
