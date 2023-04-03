@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _memcpy - this funtion copy the first n bytes of the memory area src to the memory area dest
+ * _memcpy - this fun bytes of the memory area src to the memory area dest
  * @dest: The destination of pointer
  * @src: The source of pointer
  * @n: The maximal size of bytes to fills
