@@ -4,6 +4,7 @@
  * _atoi - print the numbers int the string
  *
  * @s: is the valeur of pointr
+ * Return: The integer
  */
 
 int _atoi(char *s)
