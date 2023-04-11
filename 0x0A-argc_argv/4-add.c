@@ -10,15 +10,23 @@
 int main(int argc, char *argv[])
 {
 	int sum = 0;
-	int i;
+	int num_arg, is_digit;
 
 	if (argc > 1)
 	{
-		for (i = 1; i < argc; i++)
+		for (num_arg = 1; num_arg < argc; num_arg++)
 		{
-			if (atoi(argv[i]))
+			for (is_digit = 0; argv[num_arg][is_digit]; is_digit++)
 			{
-				sum += atoi(argv[i]);
+				if (argv[num_arg][is_digit] >= '0' && argv[num_arg][is_digit] <= '9')
+				{
+					sum += atoi(argv[num_arg]);
+				}
+				else
+				{
+					printf("Error\n");
+					return (1);
+				}
 			}
 		}
 	}
