@@ -20,14 +20,12 @@ int main(int argc, char *argv[])
 			{
 				if (argv[num_arg][is_digit] >= '0' && argv[num_arg][is_digit] <= '9')
 				{
-					sum += atoi(argv[num_arg]);
-				}
-				else
-				{
 					printf("Error\n");
 					return (1);
 				}
 			}
+			sum += atoi(argv[num_arg]);
+
 		}
 	}
 
