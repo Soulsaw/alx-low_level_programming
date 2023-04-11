@@ -8,14 +8,19 @@
 char *_strdup(char *str)
 {
 	char *ptr;
-	unsigned int index, size = strlen(str);
+	unsigned int index, size;
+       
+
+	if (str == NULL)
+		return (NULL);
+
+	size = strlen(str);
 
 	ptr = malloc(size * sizeof(char));
 
-	if (str == NULL || ptr == NULL)
-	{
+	if (ptr == NULL)
 		return (NULL);
-	}
+
 	for (index = 0; index < size; index++)
 	{
 		ptr[index] = str[index];
