@@ -17,25 +17,41 @@ char *_strcat(char *dest, char *src)
 	int i;
 	int j;
 	char *str;
-	int size = _strlen(dest) + _strlen(src);
+	int size = 0;
+
+	if (dest != NULL)
+	{
+		size += _strlen(dest);
+	}
+
+	if (src != NULL)
+	{
+		size += _strlen(src);
+	}
 
 	str = malloc((size + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (dest[i] != '\0')
+	if (dest != NULL)
 	{
-		str[i] = dest[i];
-		i++;
+		while (dest[i] != '\0')
+		{
+			str[i] = dest[i];
+			i++;
+		}
 	}
 
 	j = 0;
-	while (src[j] != '\0')
+	if (src != NULL)
 	{
-		str[i] = src[j];
-		j++;
-		i++;
+		while (src[j] != '\0')
+		{
+			str[i] = src[j];
+			j++;
+			i++;
+		}
 	}
 
 	return (str);
@@ -54,33 +70,45 @@ char *_strncat(char *dest, char *src, int n)
 	int j;
 	int k;
 	char *str;
-	int size = _strlen(dest) + n;
+	int size = 0;
 
+	if (dest != NULL)
+	{
+		size += _strlen(dest);
+	}
+
+	size += n;
 	str = malloc((size + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
 
 	i = 0;
 	j = 0;
-	while (dest[i] != '\0')
+	if (dest != NULL)
 	{
-		str[i] = dest[i];
-		i++;
+		while (dest[i] != '\0')
+		{
+			str[i] = dest[i];
+			i++;
+		}
 	}
 
 	k = 0;
-	while (src[j] != '\0')
+	if (src != NULL)
 	{
-		k++;
-		j++;
-	}
-	for (j = 0; j < n; j++)
-	{
-		if (j < k)
+		while (src[j] != '\0')
 		{
-			str[i] = src[j];
+			k++;
+			j++;
 		}
-		i++;
+		for (j = 0; j < n; j++)
+		{
+			if (j < k)
+			{
+				str[i] = src[j];
+			}
+			i++;
+		}
 	}
 
 	return (str);
@@ -120,24 +148,52 @@ int _strlen(char *s)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *str_concat;
+	unsigned int size = 0;
 
-	if (n >= (unsigned int)_strlen(s2))
+	if (s1 != NULL)
 	{
-		str_concat = malloc((_strlen(s1) + _strlen(s2) + 1) * sizeof(char));
+		size += _strlen(s1);
+	}
 
-		if (str_concat == NULL)
-			return (NULL);
+	if (s2 != NULL)
+	{
+		if (n >= (unsigned int)_strlen(s2))
+		{
+			size += _strlen(s2);
+		}
+		else
+		{
+			size += n;
+		}
+	}
 
-		str_concat = _strcat(s1, s2);
+	str_concat = malloc((size + 1) * sizeof(char));
+
+	if (str_concat == NULL)
+	{
+		return (NULL);
+	}
+	if (s1 != NULL && s2 != NULL)
+	{
+		if (n >= (unsigned int)_strlen(s2))
+		{
+			str_concat = _strcat(s1, s2);
+		}
+		else
+		{
+			str_concat = _strncat(s1, s2, n);
+		}
 	}
 	else
 	{
-		str_concat = malloc((_strlen(s1) + n + 1) * sizeof(char));
-
-		if (str_concat == NULL)
-			return (NULL);
-
-		str_concat = _strncat(s1, s2, n);
+		if (s1 == NULL)
+		{
+			str_concat = _strncat("", s2, n);
+		}
+		if (s2 == NULL)
+		{
+			str_concat = _strcat(s1, "");
+		}
 	}
 
 	return (str_concat);
