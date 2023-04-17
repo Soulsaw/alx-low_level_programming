@@ -1,5 +1,6 @@
 #include "dog.h"
 
+char *_strcpy(char *dest, char *src);
 /**
  * _strcpy - copy the string to the dest
  *
