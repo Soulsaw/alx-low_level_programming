@@ -1,4 +1,27 @@
 #include "dog.h"
+
+/**
+ * _strcpy - copy the string to the dest
+ *
+ * @dest: the destination copy
+ *
+ * @src: the source copy
+ *
+ * Return: dest
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int index = 0;
+
+	while (src[index])
+	{
+		dest[index] = src[index];
+		index++;
+	}
+
+	return (dest);
+}
+
 /**
  * new_dog - This function intialize the struct dog
  * @name: The name of dog
@@ -14,9 +37,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (dog == NULL)
 		return (NULL);
 
-	dog->name = name;
+	_strcpy(dog->name, name);
 	dog->age = age;
-	dog->owner = owner;
-
+	_strcpy(dog->owner, owner);
+i
 	return (dog);
 }
