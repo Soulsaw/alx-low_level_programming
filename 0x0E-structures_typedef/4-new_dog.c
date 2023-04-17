@@ -37,6 +37,12 @@ int _strlen(char *s)
 char *_strcpy(char *dest, char *src)
 {
 	int index = 0;
+	char *str;
+
+	str = (char *) malloc(_strlen(src) + 1);
+
+	if (str == NULL)
+		return (NULL);
 
 	while (src[index])
 	{
@@ -44,7 +50,8 @@ char *_strcpy(char *dest, char *src)
 		index++;
 	}
 
-	return (dest);
+	str = dest;
+	return (str);
 }
 /**
  * new_dog - This function intialize the struct dog
