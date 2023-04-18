@@ -1,4 +1,5 @@
 #include "dog.h"
+#include <string.h>
 /**
  * _strlen - this function return the length of a string
  *
@@ -23,28 +24,6 @@ int _strlen(char *s)
 	return (cpt);
 
 }
-
-/**
- * _strcpy - copy the string to the dest
- *
- * @dest: the destination copy
- *
- * @src: the source copy
- *
- * Return: dest
- */
-char *_strcpy(char *dest, char *src)
-{
-	int index = 0;
-
-	while (src[index])
-	{
-		dest[index] = src[index];
-		index++;
-	}
-
-	return (dest);
-}
 /**
  * new_dog - This function intialize the struct dog
  * @name: The name of dog
@@ -65,7 +44,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(dog);
 		return (NULL);
 	}
-	_strcpy(dog->name, name);
+	strcpy(dog->name, name);
 
 	dog->owner = (char *) malloc(_strlen(owner) + 1);
 	if (dog->owner == NULL)
@@ -74,7 +53,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(dog);
 		return (NULL);
 	}
-	_strcpy(dog->owner, owner);
+	strcpy(dog->owner, owner);
 
 	dog->age = age;
 
