@@ -1,58 +1,5 @@
 #include "dog.h"
-
-
-/**
- * _strlen - this function return the length of a string
- *
- * @s: Is the string value
- *
- * Return: The length
- */
-int _strlen(char *s)
-{
-	int cpt;
-	int i;
-
-	cpt = 0;
-	i = 0;
-
-	while (s[cpt] != '\0')
-	{
-		cpt++;
-		i++;
-	}
-
-	return (cpt);
-
-}
-/**
- * _strcpy - copy the string to the dest
- *
- * @dest: the destination copy
- *
- * @src: the source copy
- *
- * Return: dest
- */
-char *_strcpy(char *dest, char *src)
-{
-	int index = 0;
-	char *str;
-
-	str = (char *) malloc(_strlen(src) + 1);
-
-	if (str == NULL)
-		return (NULL);
-
-	while (src[index])
-	{
-		dest[index] = src[index];
-		index++;
-	}
-
-	str = dest;
-	return (str);
-}
+#include <string.h>
 /**
  * new_dog - This function intialize the struct dog
  * @name: The name of dog
@@ -67,22 +14,22 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog = (dog_t *)malloc(sizeof(dog_t));
 	if (dog == NULL)
 		return (NULL);
-	dog->name = (char *) malloc(_strlen(name) + 1);
+	dog->name = (char *) malloc(strlen(name) + 1);
 	if (dog->name == NULL)
 	{
 		free(dog);
 		return (NULL);
 	}
-	_strcpy(dog->name, name);
+	strcpy(dog->name, name);
 
-	dog->owner = (char *) malloc(_strlen(owner) + 1);
+	dog->owner = (char *) malloc(strlen(owner) + 1);
 	if (dog->owner == NULL)
 	{
 		free(dog->name);
 		free(dog);
 		return (NULL);
 	}
-	_strcpy(dog->owner, owner);
+	strcpy(dog->owner, owner);
 
 	dog->age = age;
 
