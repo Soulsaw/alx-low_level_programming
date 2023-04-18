@@ -46,11 +46,10 @@ char *_strcpy(char *dest, char *src)
 
 	while (src[index])
 	{
-		dest[index] = src[index];
+		str[index] = src[index];
 		index++;
 	}
 
-	str = dest;
 	return (str);
 }
 /**
