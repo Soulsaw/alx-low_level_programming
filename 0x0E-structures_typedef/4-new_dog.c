@@ -37,10 +37,6 @@ char *_strcpy(char *dest, char *src)
 {
 	int index = 0;
 
-	dest = (char *) malloc(_strlen(src) + 1);
-	if (dest == NULL)
-		return (NULL);
-
 	while (src[index])
 	{
 		dest[index] = src[index];
