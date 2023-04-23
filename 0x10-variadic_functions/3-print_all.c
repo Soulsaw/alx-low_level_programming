@@ -23,7 +23,10 @@ void print(va_list ap, char choice)
 				break;
 			case 's':
 				str = va_arg(ap, char*);
-				if (str == NULL) str ="(nil)";
+				if (str == NULL)
+				{
+					str = "(nil)";
+				}
 				printf("%s", str);
 				break;
 			default:
@@ -43,7 +46,7 @@ void print_all(const char * const format, ...)
 
 	va_start(ap, format);
 	i = 0;
-	while (format[i] != '\0')
+	while (format != NULL && format[i] != '\0')
 	{
 		print(ap, format[i]);
 		index = 0;
