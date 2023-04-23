@@ -1,6 +1,6 @@
 #include "variadic_functions.h"
 
-/*
+/**
  * print_strings - prints all arguments string passed in parameter
  * @separator: The string to be printed between numbers
  * @n: The size of the arguments
@@ -22,7 +22,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		}
 		else
 		{
-			printf("nil");
+			printf("(nil)");
 		}
 		if (i > 1 && separator != NULL)
 		{
