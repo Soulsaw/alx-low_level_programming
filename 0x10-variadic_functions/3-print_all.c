@@ -23,10 +23,8 @@ void print(va_list ap, char choice)
 				break;
 			case 's':
 				str = va_arg(ap, char*);
-				if (str != NULL)
-					printf("%s", str);
-				else
-					printf("(nil)");
+				if (str != NULL) str ="(nil)";
+				printf("%s", str);
 				break;
 			default:
 				break;
