@@ -18,3 +18,4 @@ main:
 	ret	; Return
 section .data
 	message: db "Hello, Holberton", 10, 0
+	fmt: db "%s", 10, 0
