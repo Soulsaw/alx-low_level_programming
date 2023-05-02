@@ -1,9 +1,10 @@
 #include "lists.h"
 
 /**
- * pop_listint - This function delete the head of the node
+ * get_nodeint_at_index - This function return the given index node
  * @head: The head of the node
- * Return: O or the head node's data
+ * @index: The index of the node that we want to return
+ * Return: NULL or The node
  */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {

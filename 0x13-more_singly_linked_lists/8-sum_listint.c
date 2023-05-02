@@ -1,9 +1,9 @@
 #include "lists.h"
 
 /**
- * pop_listint - This function delete the head of the node
+ * sum_listint - This function calcul the sum of the node data
  * @head: The head of the node
- * Return: O or the head node's data
+ * Return: O or the sum of the node data
  */
 int sum_listint(listint_t *head)
 {
