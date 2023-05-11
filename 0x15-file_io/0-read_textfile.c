@@ -7,20 +7,25 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fp;
-	char ch;
+	int fp;
 	size_t i = 0;
+	char ch;
+	int b = -1;
 
 	if (filename == NULL)
 		return (0);
-	fp = fopen(filename, "r");
-	if (fp == NULL)
-		return (0);
-	do {
-		ch = fgetc(fp);
-		_putchar(ch);
-		i++;
-	} while (i < letters && ch != EOF);
-	fclose(fp);
+	fp = open(filename, O_RDONLY);
+	if (fp < 0)
+		return (-1);
+	while (i < letters && b != 0)
+	{
+		b = read(fp, &ch, 1);
+		if (b != 0)
+		{
+			_putchar(ch);
+			i++;
+		}
+	}
+	close(fp);
 	return (i);
 }
