@@ -22,7 +22,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		b = read(fp, &ch, 1);
 		if (b != 0)
 		{
-			_putchar(ch);
+			write(1, &ch, 1);
 			i++;
 		}
 	}
