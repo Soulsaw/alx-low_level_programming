@@ -33,7 +33,7 @@ int cp_file_from_to(char *file_src, char *file_dest)
 		}
 		if (b != 0)
 		{
-			if (write(file2, &ch, 1) < 0)
+			if (write(file2, &ch, 1) == 0)
 			{
 				fprintf(stdout, "Error: Can't read from file %s\n", file_src);
 				exit(99);
