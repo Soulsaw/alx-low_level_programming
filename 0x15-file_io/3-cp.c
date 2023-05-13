@@ -26,14 +26,23 @@ int cp_file_from_to(char *file_src, char *file_dest)
 	}
 	do {
 		b = read(file1, &ch, 1);
+		if (b < 0)
+		{
+			fprintf(stdout, "Error: Can't read from file %s\n", file_src);
+			exit(98);
+		}
 		if (b != 0)
 		{
-			write(file2, &ch, 1);
+			if (write(file2, &ch, 1) < 0)
+			{
+				fprintf(stdout, "Error: Can't read from file %s\n", file_src);
+				exit(99);
+			}
 		}
 	} while (b != 0);
 	if (close(file1) == -1 || close(file2) == -1)
 	{
-		fprintf(stderr, "Error: Can't close fd %d\n", file1);
+		fprintf(stderr, "Error: Can\'t close fd %d\n", file1);
 		exit(100);
 	}
 	return (1);
