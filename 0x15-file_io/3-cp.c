@@ -14,7 +14,7 @@ int cp_file_from_to(char *file_src, char *file_dest)
 
 	if (file1 < 0)
 	{
-		fprintf(stderr, "Error: Can't read from file %s\n", file_src);
+		fprintf(stdout, "Error: Can't read from file %s\n", file_src);
 		exit(98);
 	}
 	file2 = open(file_dest, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR
