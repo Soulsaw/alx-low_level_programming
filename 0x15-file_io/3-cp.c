@@ -7,7 +7,7 @@
  */
 int cp_file_from_to(char *file_src, char *file_dest)
 {
-	int file1, file2, b = -2, fil = 0;
+	int file1, file2, b = -2;
 	char ch;
 
 	file1 = open(file_src, O_RDONLY);
