@@ -15,14 +15,14 @@ int cp_file_from_to(char *file_src, char *file_dest)
 	if (file1 < 0)
 	{
 		fprintf(stderr, "Error: Can't read from file %s\n", file_src);
-		return (98);
+		exit(98);
 	}
 	file2 = open(file_dest, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR
 			| S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	if (file2 < 0)
 	{
 		fprintf(stderr, "Error: Can't write to %s\n", file_dest);
-		return (99);
+		exit(99);
 	}
 	do {
 		b = read(file1, &ch, 1);
@@ -34,7 +34,7 @@ int cp_file_from_to(char *file_src, char *file_dest)
 	if (close(file1) == -1 || close(file2) == -1)
 	{
 		fprintf(stderr, "Error: Can't close fd %d\n", file1);
-		return (100);
+		exit(100);
 	}
 	return (1);
 }
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 {
 	if (argc != 3)
 	{
-		fprintf(stderr, "Usage: cp %s %s\n", argv[1], argv[2]);
+		fprintf(stderr, "Usage: cp file_from file_to\n");
 		return (97);
 	}
 	cp_file_from_to(argv[1], argv[2]);
