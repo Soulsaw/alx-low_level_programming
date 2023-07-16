@@ -13,7 +13,7 @@ int copy_file(char *file_form, char *file_to)
 	fd1 = open(file_form, O_RDONLY);
 	if (fd1 == -1)
 	{
-		dprintf(0, "Error:Can't read from file %s", file_form);
+		dprintf(2, "Error:Can't read from file %s", file_form);
 		return (98);
 	}
 
@@ -21,7 +21,7 @@ int copy_file(char *file_form, char *file_to)
 			S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	if (fd2 == -1)
 	{
-		dprintf(0, "Error: Can't write to %s", file_to);
+		dprintf(2, "Error: Can't write to %s", file_to);
 		return (99);
 	}
 
@@ -30,19 +30,19 @@ int copy_file(char *file_form, char *file_to)
 		sz2 = write(fd2, &c, 1);
 		if (sz2 == -1)
 		{
-			dprintf(0, "Error: Can't write to %s", file_to);
+			dprintf(2, "Error: Can't write to %s", file_to);
 			return (99);
 		}
 	}
 
 	if (close(fd1) == -1)
 	{
-		dprintf(0, "Error: Can't close fd %d", fd1);
+		dprintf(2, "Error: Can't close fd %d", fd1);
 		return (100);
 	}
 	if (close(fd2) == -1)
 	{
-		dprintf(0, "Error: Can't close fd %d", fd2);
+		dprintf(2, "Error: Can't close fd %d", fd2);
 		return (100);
 	}
 	return (0);
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 
 	if (argc < 3 || argc > 4)
 	{
-		dprintf(0, "Usage: cp file_from file_to");
+		dprintf(2, "Usage: cp file_from file_to");
 		return (97);
 	}
 	dd = copy_file(argv[1], argv[2]);
