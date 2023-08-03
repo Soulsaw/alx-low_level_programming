@@ -6,7 +6,7 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int mask = 1UL << 60;
+	unsigned long int mask = 1UL << 63;
 	int setValue = 1;
 
 	if (n == 0)
