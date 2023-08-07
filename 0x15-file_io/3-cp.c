@@ -13,7 +13,7 @@ int copy_file(char *file_form, char *file_to)
 	fd1 = open(file_form, O_RDONLY);
 	if (fd1 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error:Can't read from file %s", file_form);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s", file_form);
 		return (98);
 	}
 
