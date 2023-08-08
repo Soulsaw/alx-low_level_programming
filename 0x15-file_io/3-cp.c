@@ -35,6 +35,8 @@ int print_error(int fd1, int fd2, char *file_form, int returnvalue)
 	default:
 		break;
 	}
+
+	return (rtv);
 }
 
 /**
