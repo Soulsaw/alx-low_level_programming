@@ -23,9 +23,15 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		nbr_read = write(STDOUT_FILENO, &c, read(fd, &c, 1));
 		if (nbr_read == 0)
+		{
+			close(fd);
 			return (cpt);
+		}
 		if (nbr_read == -1)
+		{
+			close(fd);
 			return (0);
+		}
 		cpt++;
 	}
 	close(fd);

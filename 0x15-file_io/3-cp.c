@@ -17,8 +17,7 @@ int copy_file(char *file_form, char *file_to)
 		return (98);
 	}
 
-	fd2 = open(file_to, O_CREAT | O_TRUNC | O_WRONLY,
-			S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	fd2 = open(file_to, O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (fd2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s", file_to);
@@ -31,18 +30,15 @@ int copy_file(char *file_form, char *file_to)
 		if (sz2 == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s", file_to);
+			close(fd1);
+			close(fd2);
 			return (99);
 		}
 	}
 
-	if (close(fd1) == -1)
+	if (close(fd1) == -1 || close(fd2) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd1);
-		return (100);
-	}
-	if (close(fd2) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", (close(fd1) ? fd1 : fd2));
 		return (100);
 	}
 	return (0);
