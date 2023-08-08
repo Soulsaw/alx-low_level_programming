@@ -1,4 +1,9 @@
-#include "main.h"
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <errno.h>
+#define BUFFER 1024
 /**
  * copy_file - THis function copy the content of the file to another
  * @file_form: Is the file origin
