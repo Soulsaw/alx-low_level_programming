@@ -4,6 +4,39 @@
 #include <fcntl.h>
 #include <errno.h>
 #define BUFFER 1024
+
+/**
+ * print_error - This function permit to print the output error
+ * @fd1: The first file descriptor
+ * @fd2: The second file descriptor
+ * @file_form: The name of file contains error
+ * @returnvalue: Is the retur vslue of the error
+ * Return: Different vslue
+*/
+int print_error(int fd1, int fd2, char *file_form, int returnvalue)
+{
+	int rtv;
+
+	switch (returnvalue)
+	{
+	case 98:
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
+		file_form);
+		close(fd1);
+		close(fd2);
+		rtv = returnvalue;
+		break;
+	case 99:
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_form);
+		close(fd1);
+		close(fd2);
+		rtv = returnvalue;
+		break;
+	default:
+		break;
+	}
+}
+
 /**
  * copy_file - THis function copy the content of the file to another
  * @file_form: Is the file origin
@@ -35,14 +68,10 @@ int copy_file(char *file_form, char *file_to)
 	{
 		sz2 = write(fd_file_to, buffer, nb_read);
 		if (sz2 == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n",
-				file_to);
-			close(fd_file_form);
-			close(fd_file_to);
-			return (99);
-		}
+			return (print_error(fd_file_form, fd_file_to, file_to, 99));
 	}
+	if (nb_read == -1)
+		return (print_error(fd_file_form, fd_file_to, file_form, 98));
 	if (close(fd_file_to) == -1 || close(fd_file_form) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n",
