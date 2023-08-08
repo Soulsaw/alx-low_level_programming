@@ -7,38 +7,41 @@
  */
 int copy_file(char *file_form, char *file_to)
 {
-	int fd1, fd2, sz2;
-	char c;
+	int fd_file_form, fd_file_to, sz2;
+	char buffer[BUFFER];
+	ssize_t nb_read;
 
-	fd1 = open(file_form, O_RDONLY);
-	if (fd1 == -1)
+	fd_file_form = open(file_form, O_RDONLY);
+	if (fd_file_form == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", file_form);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s",
+			file_form);
 		return (98);
 	}
-
-	fd2 = open(file_to, O_CREAT | O_TRUNC | O_WRONLY, 0664);
-	if (fd2 == -1)
+	fd_file_to = open(file_to, O_CREAT | O_TRUNC | O_WRONLY,
+		S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	if (fd_file_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s", file_to);
+		close(fd_file_form);
 		return (99);
 	}
-
-	while (read(fd1, &c, 1) != 0)
+	while ((nb_read = read(fd_file_form, buffer, sizeof(buffer))) > 0)
 	{
-		sz2 = write(fd2, &c, 1);
+		sz2 = write(fd_file_to, buffer, nb_read);
 		if (sz2 == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s", file_to);
-			close(fd1);
-			close(fd2);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s",
+				file_to);
+			close(fd_file_form);
+			close(fd_file_to);
 			return (99);
 		}
 	}
-
-	if (close(fd1) == -1 || close(fd2) == -1)
+	if (close(fd_file_to) == -1 || close(fd_file_form) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", (close(fd1) ? fd1 : fd2));
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d",
+			(close(fd_file_to) ? fd_file_to : fd_file_form));
 		return (100);
 	}
 	return (0);
