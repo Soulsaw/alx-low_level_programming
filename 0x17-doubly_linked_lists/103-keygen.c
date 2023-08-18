@@ -4,13 +4,14 @@
  * main - The entry point of program
  * @ac: The size of arguments
  * @av: The array of the argument
+ * Return: 0 or 1
 */
 int main(int ac, char *av[])
 {
 	if (ac != 2)
 	{
 		printf("Usage: %s password\n", av[0]);
-		exit(1);
+		exit(-1);
 	}
 	printf("%s", "souley");
 	return (0);
