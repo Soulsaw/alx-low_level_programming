@@ -15,5 +15,11 @@ hash_table_t *hash_table_create(unsigned long int size)
 
 	if (!hash)
 		return (NULL);
+
+	hash->array = (hash_node_t **)malloc(sizeof(hash_node_t *));
+
+	if (!hash->array)
+		return (NULL);
+
 	return (hash);
 }
