@@ -25,7 +25,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
-		insert_at_begin(&(ht->array[index]), item);
+		if (strcmp(ht->array[index]->key, key) == 0)
+		{
+			strcpy(ht->array[index]->value, value);
+		}
+		else
+		{
+			insert_at_begin(&(ht->array[index]), item);
+		}
 	}
 	return (1);
 }
