@@ -10,16 +10,22 @@
 hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *hash;
+	unsigned long int i;
 
-	hash = (hash_table_t *)malloc(size * sizeof(hash_table_t));
+	hash = (hash_table_t *)malloc(sizeof(hash_table_t));
 
 	if (!hash)
 		return (NULL);
-
-	hash->array = (hash_node_t **)malloc(sizeof(hash_node_t *));
-
+	hash->size = size;
+	hash->array = (hash_node_t **)calloc(hash->size, sizeof(hash_node_t *));
 	if (!hash->array)
+	{
+		free(hash);
 		return (NULL);
+	}
+
+	for (i = 0; i < hash->size; i++)
+		hash->array[i] = NULL;
 
 	return (hash);
 }
