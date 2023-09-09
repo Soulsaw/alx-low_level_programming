@@ -20,7 +20,6 @@ hash_table_t *hash_table_create(unsigned long int size)
 	hash->array = (hash_node_t **)calloc(hash->size, sizeof(hash_node_t *));
 	if (!hash->array)
 	{
-		free(hash);
 		return (NULL);
 	}
 
