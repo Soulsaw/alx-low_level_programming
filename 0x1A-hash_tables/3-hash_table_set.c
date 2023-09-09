@@ -11,7 +11,7 @@
 */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *item;
+	hash_node_t *item, *current;
 	unsigned long int index;
 
 	if (!ht)
@@ -23,20 +23,20 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	item = create_item(key, value);
 	if (!item)
 		return (0);
-
-	if (!ht->array[index])
+	current = ht->array[index];
+	if (!current)
 	{
 		ht->array[index] = item;
 	}
 	else
 	{
-		if (strcmp(ht->array[index]->key, key) == 0)
+		if (strcmp(current->key, key) == 0)
 		{
-			strcpy(ht->array[index]->value, value);
+			strcpy(current->value, value);
 		}
 		else
 		{
-			insert_at_begin(&(ht->array[index]), item);
+			insert_at_begin(&current, item);
 		}
 	}
 	return (1);
