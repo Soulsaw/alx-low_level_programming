@@ -14,10 +14,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *item;
 	unsigned long int index;
 
+	if (!ht)
+		return (0);
+
 	if (key == NULL)
 		return (0);
 	index = key_index((unsigned const char*)key, ht->size);
 	item = create_item(key, value);
+	if (!item)
+		return (0);
 
 	if (!ht->array[index])
 	{
@@ -46,7 +51,18 @@ hash_node_t *create_item(const char *key, const char *value)
 	if (!item)
 		return (NULL);
 	item->key = (char *)malloc(sizeof(key) * sizeof(char));
+	if (!item->key)
+	{
+		free(item);
+		return (NULL);
+	}
 	item->value = (char *)malloc(sizeof(value) * sizeof(char));
+	if (!item->value)
+	{
+		free(item->key);
+		free(item);
+		return (NULL);
+	}
 	strcpy(item->key, key);
 	strcpy(item->value, value);
 	item->next = NULL;
