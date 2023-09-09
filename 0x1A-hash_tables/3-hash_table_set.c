@@ -20,12 +20,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (key == NULL)
 		return (0);
 	index = key_index((unsigned const char*)key, ht->size);
-	item = create_item(key, value);
-	if (!item)
-		return (0);
+	
 
 	if (!ht->array[index])
 	{
+		item = create_item(key, value);
+		if (!item)
+			return (0);
 		ht->array[index] = item;
 	}
 	else
@@ -36,6 +37,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		else
 		{
+			item = create_item(key, value);
+			if (!item)
+				return (0);
 			insert_at_begin(&(ht->array[index]), item);
 		}
 	}
