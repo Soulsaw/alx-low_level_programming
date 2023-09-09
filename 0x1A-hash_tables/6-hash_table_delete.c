@@ -9,19 +9,15 @@
 void hash_table_delete(hash_table_t *ht)
 {
 	unsigned long int i;
-	hash_node_t *current;
+	hash_table_t *head = ht;
 
-	if (ht != NULL)
+	i = 0;
+	while (i < ht->size && ht)
 	{
-		i = 0;
-		current = ht->array[i];
-		while (i < ht->size)
-		{
-			current = ht->array[i];
-			free_item(current);
-			i++;
-		}
+		free_item(ht->array[i]);
+		i++;
 	}
+	free(head);
 }
 /**
  * free_item - This function free all allocation
@@ -40,5 +36,6 @@ void free_item(hash_node_t *item)
 		free(current->key);
 		free(current->value);
 		free(current);
-	} 
+	}
+	free(head);
 }
