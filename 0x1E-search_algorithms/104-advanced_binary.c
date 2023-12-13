@@ -36,7 +36,7 @@ int advanced_binary(int *array, size_t size, int value)
 	size_t  m, l, r;
 	int result;
 
-	if (!array)
+	if (!array || size == 0)
 		return (-1);
 	l = 0;
 	r = size - 1;
