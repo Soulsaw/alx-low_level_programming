@@ -34,21 +34,27 @@ void print_array(int *array, size_t l, size_t r)
 int advanced_binary(int *array, size_t size, int value)
 {
 	size_t  m, l, r;
+	int result;
 
 	if (!array)
 		return (-1);
 	l = 0;
 	r = size - 1;
-	while (l <= r)
+	print_array(array, l, r);
+	if (l == r)
+		return (-1);
+	m = (l + r) / 2;
+	if (array[m] < value)
 	{
-		print_array(array, l, r);
-		m = (l + r) / 2;
-		if (array[m] < value)
-			l = m + 1;
-		else if (array[m] > value)
-			r = m - 1;
+		result = advanced_binary(array + (m + 1), r - m, value);
+		if (result == -1)
+			return (-1);
 		else
-			return (m);
+			return (m + 1 + result);
 	}
+	else if (array[m] > value)
+		return (advanced_binary(array, m - l, value));
+	else
+		return (m);
 	return (-1);
 }
