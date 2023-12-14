@@ -52,9 +52,14 @@ int advanced_binary(int *array, size_t size, int value)
 		else
 			return (m + 1 + result);
 	}
-	else if (array[m] > value)
+	if (array[m] > value)
 		return (advanced_binary(array, m - l + 1, value));
-	else
-		return (m);
+	if (array[m] == value)
+	{
+		if (m == 0 || array[m - 1] != value)
+			return (m);
+		else
+			return (advanced_binary(array, m - l + 1, value));
+	}
 	return (-1);
 }
