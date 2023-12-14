@@ -13,7 +13,41 @@
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
+	size_t step = sqrt(size), prev = 0, i;
+	listint_t *lprev = list;
+
 	if (!list || size == 0)
 		return (NULL);
+	for (i = prev; i < step; i++)
+		list = list->next;
+	printf("Value checked at index [%ld] = [%d]\n", list->index, list->n);
+	while (list->n  < value)
+	{
+		prev = step;
+		step += sqrt(size);
+		lprev = list;
+		for (i = prev; i < step; i++)
+		{
+			if (!list->next)
+				break;
+			list = list->next;
+		}
+		printf("Value checked at index [%ld] = [%d]\n",
+				list->index, list->n);
+		if (!list->next)
+			break;
+	}
+	printf("Value found between indexes [%ld] and [%ld]\n", prev, step);
+	while (lprev->n < value)
+	{
+		printf("Value checked at index [%ld] = [%d]\n",
+				lprev->index, lprev->n);
+		lprev = lprev->next;
+		if (lprev == NULL)
+			return (NULL);
+	}
+	printf("Value checked array[%ld] = [%d]\n", lprev->index, lprev->n);
+	if (lprev->n == value)
+		return (lprev);
 	return (NULL);
 }
