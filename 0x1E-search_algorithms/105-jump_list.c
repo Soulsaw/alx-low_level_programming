@@ -15,7 +15,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 {
 	size_t step = sqrt(size), prev = 0, i;
 	listint_t *lprev = list;
-
+hjklkjh
 	if (!list || size == 0)
 		return (NULL);
 	for (i = prev; i < step; i++)
