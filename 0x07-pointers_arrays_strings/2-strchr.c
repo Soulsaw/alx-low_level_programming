@@ -8,26 +8,13 @@
  */
 char *_strchr(char *s, char c)
 {
-	int index;
-	int index_occ;
-	int boolean;
+	int index = 0;
 
-	boolean = 0;
-	for (index = 0; index >= '\0'; index++)
+	while (s[index] != '\0')
 	{
 		if (s[index] == c)
-		{
-			boolean = 1;
-			index_occ = index;
-			break;
-		}
+			return (s + index);
+		index++;
 	}
-	if (boolean == 1)
-	{
-		return (s + index_occ);
-	}
-	else
-	{
-		return ("nil");
-	}
+	return (NULL);
 }
