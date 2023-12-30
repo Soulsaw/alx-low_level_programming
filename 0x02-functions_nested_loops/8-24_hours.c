@@ -5,8 +5,7 @@
  */
 void jack_bauer(void)
 {
-	int a;
-	int b;
+	int a, b;
 
 	for (a = 0; a < 24; a++)
 	{
@@ -14,25 +13,27 @@ void jack_bauer(void)
 		{
 			if (a < 10)
 			{
-				putchar('0');
-				putchar('0' + a);
+				_putchar('0');
+				_putchar('0' + a);
 			}
 			else
 			{
-				putchar('0' + a);
+				_putchar('0' + a / 10);
+				_putchar('0' + a % 10);
 			}
-			putchar(':');
+			_putchar(':');
 			if (b < 10)
 			{
-				putchar('0');
-				putchar('0' + b);
+				_putchar('0');
+				_putchar('0' + b);
 			}
 			else
 			{
-				putchar('0' + b);
+				_putchar('0' + b / 10);
+				_putchar('0' + b % 10);
 			}
 
-			putchar('\n');
+			_putchar('\n');
 		}
 
 	}
