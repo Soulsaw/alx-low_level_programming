@@ -11,29 +11,29 @@ void print_number(int n)
 	abs = n;
 	if (n < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		abs = -1 * n;
 	}
 	if ((abs / 1000) != 0)
 	{
-		putchar('0' + (abs / 1000));
-		putchar('0' + (abs % 1000) / 100);
-		putchar('0' + ((abs % 1000) % 100) / 10);
-		putchar('0' + ((abs % 1000) % 100) % 10);
+		_putchar('0' + (abs / 1000));
+		_putchar('0' + (abs % 1000) / 100);
+		_putchar('0' + ((abs % 1000) % 100) / 10);
+		_putchar('0' + ((abs % 1000) % 100) % 10);
 	}
 	else if (abs / 100 != 0)
 	{
-		putchar('0' + abs / 100);
-		putchar('0' + (abs % 100) / 10);
-		putchar('0' + (abs % 100) % 10);
+		_putchar('0' + abs / 100);
+		_putchar('0' + (abs % 100) / 10);
+		_putchar('0' + (abs % 100) % 10);
 	}
 	else if (abs / 10 != 0)
 	{
-		putchar('0' + abs / 10);
-		putchar('0' + abs % 10);
+		_putchar('0' + abs / 10);
+		_putchar('0' + abs % 10);
 	}
 	else
 	{
-		putchar('0' + abs);
+		_putchar('0' + abs);
 	}
 }
