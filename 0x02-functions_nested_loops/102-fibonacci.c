@@ -19,6 +19,7 @@ int main(void)
 		next = fb;
 		cpt++;
 	}
+	printf("\n");
 
 	return (0);
 }
