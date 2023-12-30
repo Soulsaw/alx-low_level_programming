@@ -6,17 +6,17 @@
  */
 int main(void)
 {
-	float cur = 0, next = 1, cpt = 1, fb;
+	long int cur = 0, next = 1, fb;
+	int cpt = 1;
 
 	while (cpt <= 50)
 	{
 		fb = cur + next;
-		printf("%.f", fb);
+		printf("%.ld", fb);
 		if (cpt < 50)
 			printf(", ");
 		cur = next;
 		next = fb;
-
 		cpt++;
 	}
 
