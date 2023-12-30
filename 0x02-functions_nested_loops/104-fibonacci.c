@@ -7,7 +7,7 @@
 int main(void)
 {
 	long double cur = 0, next = 1, fb;
-	int cpt = 1;
+	int cpt = 0;
 
 	while (cpt <= 98)
 	{
