@@ -9,15 +9,11 @@ int check_sqrt_recursion(int n, int b);
 int check_sqrt_recursion(int n, int b)
 {
 
-	if (n < 0)
+	if (n < 0 || (b * b) > n)
 		return (-1);
-	if (n != 0)
-	{
-		n = n - (2 * b + 1);
-		b++;
-		return (check_sqrt_recursion(n, b));
-	}
-	return (b);
+	if (b * b == n)
+		return (b);
+	return (check_sqrt_recursion(n, b + 1));
 }
 
 /**
