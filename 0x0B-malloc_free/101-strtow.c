@@ -44,6 +44,8 @@ char **allowtow(char *str)
 	char **split = NULL, *copy = str;
 	int len = 0, idx = 0, nb_words = nombre_words(copy), words = 0;
 
+	if (nb_words == 0)
+		return (NULL);
 	split = (char **)malloc((nb_words + 1) * sizeof(char *));
 	if (!split)
 		return (NULL);
@@ -86,7 +88,7 @@ char **strtow(char *str)
 	int len = 0, idx = 0, words = 0;
 
 	split = allowtow(str);
-	if (!str)
+	if (!str || !split)
 		return (NULL);
 	while (*copy)
 	{
